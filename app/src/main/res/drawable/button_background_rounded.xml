@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Color de fondo del botón, el que coincide con '¿Sabías que...' -->
+    <solid android:color="@color/accent_text_color" />
+
+    <!-- Radio de las esquinas para el redondeo -->
+    <corners android:radius="30dp" />
+
+</shape>
