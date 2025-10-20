@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AhorrApp">
         <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.AhorrApp">
@@ -20,20 +23,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-
-        <!-- 2. PresentScreenActivity DEBE estar declarada aquí -->
+        </activity> <!-- 2. PresentScreenActivity DEBE estar declarada aquí -->
         <activity
             android:name=".PresentScreenActivity"
-            android:exported="false" />
-
-        <!-- 3. PresentScreen2Activity también debe estar declarada -->
+            android:exported="false" /> <!-- 3. PresentScreen2Activity también debe estar declarada -->
         <activity
             android:name=".PresentScreen2Activity"
-            android:exported="false" />
-
-        <!-- 4. LoginActivity también debe estar declarada -->
+            android:exported="false" /> <!-- 4. LoginActivity también debe estar declarada -->
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
