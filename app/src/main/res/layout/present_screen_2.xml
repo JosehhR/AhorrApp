@@ -8,13 +8,15 @@
 
     <ImageView
         android:id="@+id/logo_image_view"
-        android:layout_width="238dp"
-        android:layout_height="227dp"
+        android:layout_width="314dp"
+        android:layout_height="325dp"
         android:contentDescription="Logo de AhorrApp"
         android:src="@drawable/logo_app"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="259dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/title_text_view"
@@ -25,8 +27,12 @@
         android:textColor="@color/app_background"
         android:textSize="48sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="102dp"
-        tools:layout_editor_absoluteY="184dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.269"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
