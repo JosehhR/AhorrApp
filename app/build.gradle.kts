@@ -7,6 +7,10 @@ android {
     namespace = "com.example.ahorrapp"
     compileSdk = 36
 
+    packagingOptions {
+        resources.excludes.add("META-INF/androidx.cardview_cardview.version")
+    }
+
     defaultConfig {
         applicationId = "com.example.ahorrapp"
         minSdk = 24
