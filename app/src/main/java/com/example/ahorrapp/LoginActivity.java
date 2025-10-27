@@ -15,7 +15,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = LoginScreenBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        // Navegación a la pantalla de registro
         binding.btnTabRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

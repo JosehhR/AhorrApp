@@ -15,7 +15,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = RegisterScreenBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        // Navegación a la pantalla de inicio de sesión
         binding.btnTabLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
