@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_bills"
+        android:icon="@drawable/bills_icon"
+        android:title="Inicio" />
+
+    <item
+        android:id="@+id/nav_reports"
+        android:icon="@drawable/reports_icon"
+        android:title="Estadísticas" />
+
+    <item
+        android:id="@+id/nav_start"
+        android:icon="@drawable/inicio_icon"
+        android:title="Inicio rápido" />
+
+    <item
+        android:id="@+id/nav_debts"
+        android:icon="@drawable/debts"
+        android:title="Deudas" />
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/profile_icon"
+        android:title="Perfil" />
+
+</menu>
