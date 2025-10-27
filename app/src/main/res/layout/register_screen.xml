@@ -127,8 +127,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/name_input_layout"
-        app:startIconDrawable="@drawable/icono_frecuencia"
-        app:startIconSize="10dp">
+        app:startIconDrawable="@drawable/icono_frecuencia">
+
 
         <AutoCompleteTextView
             android:id="@+id/frequency_autocomplete"
