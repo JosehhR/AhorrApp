@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AhorrApp">
         <activity
+            android:name=".EditDebtActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DebtListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TestDebtActivity"
+            android:exported="false" />
+        <activity
             android:name=".PerfilActivity"
             android:exported="false" />
         <activity
@@ -29,13 +38,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- 2. PresentScreenActivity DEBE estar declarada aquí -->
+        </activity>
         <activity
             android:name=".PresentScreenActivity"
-            android:exported="false" /> <!-- 3. PresentScreen2Activity también debe estar declarada -->
+            android:exported="false" />
         <activity
             android:name=".PresentScreen2Activity"
-            android:exported="false" /> <!-- 4. LoginActivity también debe estar declarada -->
+            android:exported="false" />
         <activity
             android:name=".LoginActivity"
             android:exported="false" />

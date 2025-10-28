@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         // Inicio de sesión exitoso, redirigir a PerfilActivity
-                        Intent intent = new Intent(LoginActivity.this, PerfilActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, TestDebtActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                         finish(); // Cierra LoginActivity
