@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"> <!-- Define una forma ovalada, para un círculo perfecto. -->
+
+    <!-- Define el color de fondo. -->
+    <solid android:color="#CCCCCC"/>
+
+    <!-- Define el tamaño, para un círculo se usan las mismas medidas. -->
+    <size
+        android:width="75dp"
+        android:height="75dp"/>
+
+</shape>
