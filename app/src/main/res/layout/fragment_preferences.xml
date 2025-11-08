@@ -26,152 +26,153 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        /> <androidx.core.widget.NestedScrollView
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    android:layout_marginTop="16dp"
-    android:fillViewport="true"
-
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-
-    app:layout_constraintTop_toBottomOf="@+id/textView2">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
-        <EditText
-            android:id="@+id/editTextMaxGasto"
-            android:layout_width="0dp"
+        /> 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:fillViewport="true"
+    
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+    
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+    
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Máximo de dinero que deseas gastar"
-            android:inputType="number"
-            android:textSize="17sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        <TextView
-            android:id="@+id/labelFrecuenciaGastos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Frecuencia de gastos"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextMaxGasto" />
-
-        <RadioGroup
-            android:id="@+id/radioGroupGastos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/labelFrecuenciaGastos">
-
-            <RadioButton
-                android:id="@+id/radioGastosDiario"
-                android:layout_width="match_parent"
+            android:padding="16dp">
+            <EditText
+                android:id="@+id/editTextMaxGasto"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="Diario" />
-
-            <RadioButton
-                android:id="@+id/radioGastosSemanal"
-                android:layout_width="match_parent"
+                android:ems="10"
+                android:hint="Máximo de dinero que deseas gastar"
+                android:inputType="number"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/labelFrecuenciaGastos"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Semanal" />
-
-            <RadioButton
-                android:id="@+id/radioGastosMensual"
-                android:layout_width="match_parent"
+                android:layout_marginTop="24dp"
+                android:text="Frecuencia de gastos"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextMaxGasto" />
+    
+            <RadioGroup
+                android:id="@+id/radioGroupGastos"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mensual" />
-
-            <RadioButton
-                android:id="@+id/radioGastosAnual"
-                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelFrecuenciaGastos">
+    
+                <RadioButton
+                    android:id="@+id/radioGastosDiario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Diario" />
+    
+                <RadioButton
+                    android:id="@+id/radioGastosSemanal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Semanal" />
+    
+                <RadioButton
+                    android:id="@+id/radioGastosMensual"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mensual" />
+    
+                <RadioButton
+                    android:id="@+id/radioGastosAnual"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Anual" />
+    
+            </RadioGroup>
+    
+            <EditText
+                android:id="@+id/editTextIngresos"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Anual" />
-
-        </RadioGroup>
-
-        <EditText
-            android:id="@+id/editTextIngresos"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:ems="10"
-            android:hint="Ingresos aproximados"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroupGastos" />
-
-        <TextView
-            android:id="@+id/labelFrecuenciaPagos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Frecuencia de pagos"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextIngresos" />
-
-        <RadioGroup
-            android:id="@+id/radioGroupPagos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/labelFrecuenciaPagos">
-
-            <RadioButton
-                android:id="@+id/radioPagosDiario"
-                android:layout_width="match_parent"
+                android:layout_marginTop="24dp"
+                android:ems="10"
+                android:hint="Ingresos aproximados"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroupGastos" />
+    
+            <TextView
+                android:id="@+id/labelFrecuenciaPagos"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="Diario" />
-
-            <RadioButton
-                android:id="@+id/radioPagosSemanal"
-                android:layout_width="match_parent"
+                android:layout_marginTop="24dp"
+                android:text="Frecuencia de pagos"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextIngresos" />
+    
+            <RadioGroup
+                android:id="@+id/radioGroupPagos"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Semanal" />
-
-            <RadioButton
-                android:id="@+id/radioPagosMensual"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Mensual" />
-
-            <RadioButton
-                android:id="@+id/radioPagosAnual"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Anual" />
-
-        </RadioGroup>
-
-        <Button
-            android:id="@+id/button10"
-            android:layout_width="203dp"
-            android:layout_height="65dp"
-            android:layout_marginTop="24dp"
-            android:text="Guardar"
-            android:textSize="25dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroupPagos" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.core.widget.NestedScrollView>
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelFrecuenciaPagos">
+    
+                <RadioButton
+                    android:id="@+id/radioPagosDiario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Diario" />
+    
+                <RadioButton
+                    android:id="@+id/radioPagosSemanal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Semanal" />
+    
+                <RadioButton
+                    android:id="@+id/radioPagosMensual"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mensual" />
+    
+                <RadioButton
+                    android:id="@+id/radioPagosAnual"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Anual" />
+    
+            </RadioGroup>
+    
+            <Button
+                android:id="@+id/button10"
+                android:layout_width="203dp"
+                android:layout_height="65dp"
+                android:layout_marginTop="24dp"
+                android:text="Guardar"
+                android:textSize="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroupPagos" />
+    
+    
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
