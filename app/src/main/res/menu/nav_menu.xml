@@ -4,7 +4,7 @@
     <item
         android:id="@+id/nav_bills"
         android:icon="@drawable/bills_icon"
-        android:title="Inicio" />
+        android:title="Gastos" />
 
     <item
         android:id="@+id/nav_reports"
@@ -14,7 +14,7 @@
     <item
         android:id="@+id/nav_start"
         android:icon="@drawable/inicio_icon"
-        android:title="Inicio rápido" />
+        android:title="Inicio" />
 
     <item
         android:id="@+id/nav_debts"

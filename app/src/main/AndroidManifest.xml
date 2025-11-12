@@ -18,6 +18,18 @@
             android:name=".DebtListActivity"
             android:exported="false" />
         <activity
+            android:name=".InformationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ExpensesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReportsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DebtsActivity"
+            android:exported="false" />
+        <activity
             android:name=".TestDebtActivity"
             android:exported="false" />
         <activity
@@ -47,6 +59,16 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ConsultDebtsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterDebtsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecordExpensesActivity"
             android:exported="false" />
     </application>
 
