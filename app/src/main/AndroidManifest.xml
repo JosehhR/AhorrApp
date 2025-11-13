@@ -33,7 +33,7 @@
             android:name=".TestDebtActivity"
             android:exported="false" />
         <activity
-            android:name=".PerfilActivity"
+            android:name=".PerfilFragment"
             android:exported="false" />
         <activity
             android:name=".ForgotPasswordActivity"

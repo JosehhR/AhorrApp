@@ -35,7 +35,7 @@ public class RecordExpensesActivity extends AppCompatActivity {
                 startActivity(new Intent(this, DebtsActivity.class));
                 return true;
             } else if (id == R.id.nav_profile) {
-                startActivity(new Intent(this, PerfilActivity.class));
+                startActivity(new Intent(this, PerfilFragment.class));
                 return true;
             }
 

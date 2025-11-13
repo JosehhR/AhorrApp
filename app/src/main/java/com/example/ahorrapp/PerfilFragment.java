@@ -8,7 +8,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.ahorrapp.databinding.ActivityPerfilBinding;
+import com.example.ahorrapp.databinding.FragmentPerfilBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -20,16 +20,17 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class PerfilActivity extends AppCompatActivity {
+public class PerfilFragment extends AppCompatActivity {
 
-    private ActivityPerfilBinding binding;
+    private FragmentPerfilBinding binding;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityPerfilBinding.inflate(getLayoutInflater());
+        
+        binding = FragmentPerfilBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         mAuth = FirebaseAuth.getInstance();
@@ -48,6 +49,26 @@ public class PerfilActivity extends AppCompatActivity {
                 mAuth.signOut();
                 redirectToLogin();
             }
+        });
+
+        binding.bottomMenu.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+
+            if (id == R.id.nav_bills) {
+                startActivity(new Intent(this, ExpensesActivity.class));
+                return true;
+            } else if (id == R.id.nav_reports) {
+                startActivity(new Intent(this, ReportsActivity.class));
+                return true;
+            } else if (id == R.id.nav_start) {
+                startActivity(new Intent(this, InformationActivity.class));
+                return true;
+            } else if (id == R.id.nav_debts) {
+                startActivity(new Intent(this, DebtsActivity.class));
+                return true;
+            }
+
+            return false;
         });
     }
 
@@ -85,13 +106,13 @@ public class PerfilActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(PerfilActivity.this, "Error al cargar los datos del perfil.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PerfilFragment.this, "Error al cargar los datos del perfil.", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void redirectToLogin() {
-        Intent intent = new Intent(PerfilActivity.this, LoginActivity.class);
+        Intent intent = new Intent(PerfilFragment.this, LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
