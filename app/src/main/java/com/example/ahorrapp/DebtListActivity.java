@@ -1,11 +1,14 @@
 package com.example.ahorrapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.ahorrapp.databinding.ActivityConsultDebtsBinding;
 import com.example.ahorrapp.lib.debt;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,11 +27,15 @@ public class DebtListActivity extends AppCompatActivity {
     private List<debt> debtList;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
+    
+    private ActivityConsultDebtsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_debt_list);
+        
+        binding = ActivityConsultDebtsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -39,15 +46,42 @@ public class DebtListActivity extends AppCompatActivity {
         }
         String userId = currentUser.getUid();
         mDatabase = FirebaseDatabase.getInstance().getReference("debts").child(userId);
-
-        debtsRecyclerView = findViewById(R.id.debtsRecyclerView);
+        
+        debtsRecyclerView = binding.debtssRecyclerView;
         debtsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         debtList = new ArrayList<>();
         debtAdapter = new DebtAdapter(this, debtList);
         debtsRecyclerView.setAdapter(debtAdapter);
 
+        // The back button in activity_consult_debts.xml has the id 'button'
+        binding.buttonback.setOnClickListener(v -> {
+            Intent intent = new Intent(DebtListActivity.this, DebtsActivity.class);
+            startActivity(intent);
+        });
+
+        binding.bottomMenu.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+
+            if (id == R.id.nav_bills) {
+                startActivity(new Intent(this, ExpensesActivity.class));
+                return true;
+            } else if (id == R.id.nav_reports) {
+                startActivity(new Intent(this, ReportsActivity.class));
+                return true;
+            } else if (id == R.id.nav_start) {
+                startActivity(new Intent(this, InformationActivity.class));
+                return true;
+            } else if (id == R.id.nav_profile) {
+                startActivity(new Intent(this, PerfilFragment.class));
+                return true;
+            }
+
+            return false;
+        });
+
         loadDebts();
     }
+    
 
     private void loadDebts() {
         mDatabase.addValueEventListener(new ValueEventListener() {

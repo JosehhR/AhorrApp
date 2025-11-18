@@ -70,6 +70,15 @@
         <activity
             android:name=".RecordExpensesActivity"
             android:exported="false" />
+
+        <!-- Activities añadidas -->
+        <activity
+            android:name=".RegisterSharedDebtActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SharedDebtListActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

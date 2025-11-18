@@ -17,7 +17,7 @@ public class ConsultDebtsActivity extends AppCompatActivity {
         binding = ActivityConsultDebtsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.button.setOnClickListener(v -> {
+        binding.buttonback.setOnClickListener(v -> {
             Intent intent = new Intent(ConsultDebtsActivity.this, DebtsActivity.class);
             startActivity(intent);
         });

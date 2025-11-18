@@ -33,6 +33,9 @@ public class PerfilFragment extends AppCompatActivity {
         binding = FragmentPerfilBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Seleccionar el ítem correcto en la barra de navegación
+        binding.bottomMenu.setSelectedItemId(R.id.nav_profile);
+
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
 

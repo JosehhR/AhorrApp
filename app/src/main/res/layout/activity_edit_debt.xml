@@ -5,7 +5,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:background="?android:attr/colorBackground"
     tools:context=".EditDebtActivity">
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre de la deuda" />
 
     <EditText
         android:id="@+id/startDateEditText"

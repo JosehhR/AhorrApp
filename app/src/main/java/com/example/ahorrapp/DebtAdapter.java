@@ -39,6 +39,7 @@ public class DebtAdapter extends RecyclerView.Adapter<DebtAdapter.DebtViewHolder
     public void onBindViewHolder(@NonNull DebtViewHolder holder, int position) {
         debt currentDebt = debtList.get(position);
 
+        holder.debtNameTextView.setText(currentDebt.getName());
         holder.debtValueTextView.setText("Valor de la Deuda: $" + String.format("%,.2f", currentDebt.getDebtValue()));
         holder.dueDateTextView.setText("Vence: " + currentDebt.getDueDate());
         holder.priorityTextView.setText("Prioridad: " + currentDebt.getPriority());
@@ -78,11 +79,12 @@ public class DebtAdapter extends RecyclerView.Adapter<DebtAdapter.DebtViewHolder
     }
 
     static class DebtViewHolder extends RecyclerView.ViewHolder {
-        TextView debtValueTextView, dueDateTextView, priorityTextView;
+        TextView debtNameTextView, debtValueTextView, dueDateTextView, priorityTextView;
         Button editDebtButton, deleteDebtButton;
 
         public DebtViewHolder(@NonNull View itemView) {
             super(itemView);
+            debtNameTextView = itemView.findViewById(R.id.debtNameTextView);
             debtValueTextView = itemView.findViewById(R.id.debtValueTextView);
             dueDateTextView = itemView.findViewById(R.id.dueDateTextView);
             priorityTextView = itemView.findViewById(R.id.priorityTextView);

@@ -17,6 +17,9 @@ public class ExpensesActivity extends AppCompatActivity {
         binding = FragmentExpensesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Seleccionar el ítem correcto en la barra de navegación
+        binding.bottomMenu.setSelectedItemId(R.id.nav_bills);
+
         binding.button11.setOnClickListener(v -> {
             Intent intent = new Intent(ExpensesActivity.this, RecordExpensesActivity.class);
             startActivity(intent);

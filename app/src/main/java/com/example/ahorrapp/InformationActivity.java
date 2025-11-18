@@ -18,6 +18,9 @@ public class InformationActivity extends AppCompatActivity {
         binding = ActivityInformationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Seleccionar el ítem correcto en la barra de navegación
+        binding.bottomMenu.setSelectedItemId(R.id.nav_start);
+
         binding.bottomMenu.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
 

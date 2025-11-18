@@ -13,6 +13,7 @@ import java.util.UUID;
 
 public class debt {
     private String id;
+    private String name;
     private String startDate;
     private String dueDate;
     private double interestRate;
@@ -20,13 +21,15 @@ public class debt {
     private double debtValue;
     private String priority;
     private String userId;
+    private boolean isPaid; // Nuevo campo
 
     public debt() {
         // Constructor vacío requerido para Firebase
     }
 
-    public debt(String startDate, String dueDate, double interestRate, int installments, double debtValue, String priority, String userId) {
+    public debt(String name, String startDate, String dueDate, double interestRate, int installments, double debtValue, String priority, String userId) {
         this.id = UUID.randomUUID().toString();
+        this.name = name;
         this.startDate = startDate;
         this.dueDate = dueDate;
         this.interestRate = interestRate;
@@ -34,7 +37,10 @@ public class debt {
         this.debtValue = debtValue;
         this.priority = priority;
         this.userId = userId;
+        this.isPaid = false; // Valor por defecto
     }
+
+    // Getters y Setters
 
     public String getId() {
         return id;
@@ -42,6 +48,14 @@ public class debt {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getStartDate() {
@@ -100,9 +114,21 @@ public class debt {
         this.userId = userId;
     }
 
+    public boolean isPaid() {
+        return isPaid;
+    }
+
+    public void setPaid(boolean paid) {
+        isPaid = paid;
+    }
+    
+    public Task<Void> updateInDatabase() {
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        return mDatabase.child("debts").child(this.userId).child(this.id).setValue(this);
+    }
+
     public Task<Void> uploadToDatabase() {
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        // Guardar la deuda bajo /debts/{userId}/{debtId}
         return mDatabase.child("debts").child(this.userId).child(this.id).setValue(this);
     }
 

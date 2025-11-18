@@ -11,7 +11,7 @@ import com.example.ahorrapp.lib.debt;
 
 public class EditDebtActivity extends AppCompatActivity {
 
-    private EditText startDateEditText, dueDateEditText, interestRateEditText, installmentsEditText, debtValueEditText, priorityEditText;
+    private EditText nameEditText, startDateEditText, dueDateEditText, interestRateEditText, installmentsEditText, debtValueEditText, priorityEditText;
     private Button saveChangesButton;
     private String debtId, userId;
 
@@ -20,6 +20,7 @@ public class EditDebtActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_debt);
 
+        nameEditText = findViewById(R.id.nameEditText);
         startDateEditText = findViewById(R.id.startDateEditText);
         dueDateEditText = findViewById(R.id.dueDateEditText);
         interestRateEditText = findViewById(R.id.interestRateEditText);
@@ -43,6 +44,7 @@ public class EditDebtActivity extends AppCompatActivity {
             @Override
             public void onDebtReceived(debt debt) {
                 if (debt != null) {
+                    nameEditText.setText(debt.getName());
                     startDateEditText.setText(debt.getStartDate());
                     dueDateEditText.setText(debt.getDueDate());
                     interestRateEditText.setText(String.valueOf(debt.getInterestRate()));
@@ -60,6 +62,7 @@ public class EditDebtActivity extends AppCompatActivity {
     }
 
     private void saveDebtChanges() {
+        String name = nameEditText.getText().toString();
         String startDate = startDateEditText.getText().toString();
         String dueDate = dueDateEditText.getText().toString();
         double interestRate = Double.parseDouble(interestRateEditText.getText().toString());
@@ -67,7 +70,7 @@ public class EditDebtActivity extends AppCompatActivity {
         double debtValue = Double.parseDouble(debtValueEditText.getText().toString());
         String priority = priorityEditText.getText().toString();
 
-        debt updatedDebt = new debt(startDate, dueDate, interestRate, installments, debtValue, priority, userId);
+        debt updatedDebt = new debt(name, startDate, dueDate, interestRate, installments, debtValue, priority, userId);
         updatedDebt.setId(debtId); // Asegurarse de que la ID no cambie
 
         updatedDebt.uploadToDatabase()

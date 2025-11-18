@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+    app:cardElevation="4dp"
     app:cardCornerRadius="8dp">
 
     <LinearLayout
@@ -24,42 +25,29 @@
             android:id="@+id/debtValueTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Valor de la Deuda: $1,000,000"
-            android:textSize="18sp"
+            android:text="Valor: $1,000.00"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Participantes:"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/dueDateTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vence: 2024-12-31" />
-
-        <TextView
-            android:id="@+id/priorityTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Prioridad: Alta" />
-
         <LinearLayout
+            android:id="@+id/participantsListContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="end">
+            android:orientation="vertical"
+            android:layout_marginStart="16dp" />
 
-            <Button
-                android:id="@+id/editDebtButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Editar" />
-
-            <Button
-                android:id="@+id/deleteDebtButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Eliminar" />
-        </LinearLayout>
+        <CheckBox
+            android:id="@+id/paidCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Pagada" />
 
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>

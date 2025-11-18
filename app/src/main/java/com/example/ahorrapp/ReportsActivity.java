@@ -17,6 +17,9 @@ public class ReportsActivity extends AppCompatActivity {
         binding = ActivityReportsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Seleccionar el ítem correcto en la barra de navegación
+        binding.bottomMenu.setSelectedItemId(R.id.nav_reports);
+
         binding.bottomMenu.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
 
