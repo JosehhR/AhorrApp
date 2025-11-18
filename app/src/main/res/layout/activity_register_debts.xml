@@ -1,183 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?android:attr/colorBackground">
 
-    <EditText
-        android:id="@+id/dueDateEditText"
-        android:layout_width="308dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Fecha de vencimiento"
-        android:inputType="text|textAutoComplete"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startDateEditText" />
-
-    <EditText
-        android:id="@+id/interestRateEditText"
-        android:layout_width="308dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:hint="Tasa de interes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dueDateEditText" />
-
-    <EditText
-        android:id="@+id/installmentsEditText"
-        android:layout_width="308dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="Número de cuotas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/interestRateEditText" />
-
-    <EditText
-        android:id="@+id/debtValueEditText"
-        android:layout_width="308dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:hint="Valor de deuda"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/installmentsEditText" />
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_menu"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_alignParentBottom="true"
         app:menu="@menu/nav_menu" />
 
-    <EditText
-        android:id="@+id/startDateEditText"
-        android:layout_width="308dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Fecha de inicio"
-        android:inputType="text|textAutoComplete"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_menu"
+        android:fillViewport="true">
 
-    <ImageButton
-        android:id="@+id/button"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/button_background_rounded"
-        android:padding="8dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/baseline_arrow_back_ios_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:text="AhorrApp"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="266dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="24dp"
-        android:text="Registra tus deudas"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <EditText
-        android:id="@+id/nameEditText"
-        android:layout_width="308dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Nombre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <RadioGroup
-        android:id="@+id/radioGroupPrioridad"
-        android:layout_width="155dp"
-        android:layout_height="144dp"
-        android:layout_marginTop="60dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.199"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/debtValueEditText"
-        app:layout_constraintVertical_bias="0.055">
-
-        <RadioButton
-            android:id="@+id/radioPrioridadBaja"
-            android:layout_width="118dp"
-            android:layout_height="wrap_content"
-            android:text="Baja" />
-
-        <RadioButton
-            android:id="@+id/radioPrioridadMedia"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Media" />
+            android:paddingBottom="24dp">
 
-        <RadioButton
-            android:id="@+id/radioGPrioridadAlta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Alta" />
-    </RadioGroup>
+            <ImageButton
+                android:id="@+id/button"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_background_rounded"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/baseline_arrow_back_ios_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/uploadDebtButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:text="Registrar deuda"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_menu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="84dp"
+                android:text="AhorrApp"
+                android:textSize="40sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Prioridad"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.158"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/debtValueEditText" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="266dp"
+                android:layout_height="31dp"
+                android:layout_marginTop="24dp"
+                android:text="Registra tus deudas"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/nameEditText"
+                android:layout_width="308dp"
+                android:layout_height="38dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="Nombre"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <EditText
+                android:id="@+id/startDateEditText"
+                android:layout_width="308dp"
+                android:layout_height="38dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="Fecha de inicio"
+                android:inputType="text|textAutoComplete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
+
+            <EditText
+                android:id="@+id/dueDateEditText"
+                android:layout_width="308dp"
+                android:layout_height="38dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="Fecha de vencimiento"
+                android:inputType="text|textAutoComplete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/startDateEditText" />
+
+            <EditText
+                android:id="@+id/interestRateEditText"
+                android:layout_width="308dp"
+                android:layout_height="38dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="Tasa de interes"
+                android:inputType="numberDecimal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dueDateEditText" />
+
+            <EditText
+                android:id="@+id/installmentsEditText"
+                android:layout_width="308dp"
+                android:layout_height="38dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="Número de cuotas"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/interestRateEditText" />
+
+            <EditText
+                android:id="@+id/debtValueEditText"
+                android:layout_width="308dp"
+                android:layout_height="38dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="Valor de deuda"
+                android:inputType="numberDecimal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/installmentsEditText" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Prioridad"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="@+id/debtValueEditText"
+                app:layout_constraintTop_toBottomOf="@+id/debtValueEditText" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupPrioridad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="@+id/textView10"
+                app:layout_constraintTop_toBottomOf="@+id/textView10">
+
+                <RadioButton
+                    android:id="@+id/radioPrioridadBaja"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Baja" />
+
+                <RadioButton
+                    android:id="@+id/radioPrioridadMedia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Media" />
+
+                <RadioButton
+                    android:id="@+id/radioGPrioridadAlta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alta" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/uploadDebtButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Registrar deuda"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroupPrioridad" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</RelativeLayout>

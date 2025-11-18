@@ -38,6 +38,9 @@ public class SharedDebtListActivity extends AppCompatActivity {
         binding = ActivitySharedDebtListBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Seleccionar el ítem correcto en la barra de navegación
+        binding.bottomMenu.setSelectedItemId(R.id.nav_debts);
+
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
 

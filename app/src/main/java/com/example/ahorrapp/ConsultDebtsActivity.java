@@ -17,6 +17,9 @@ public class ConsultDebtsActivity extends AppCompatActivity {
         binding = ActivityConsultDebtsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Seleccionar el ítem correcto en la barra de navegación
+        binding.bottomMenu.setSelectedItemId(R.id.nav_debts);
+
         binding.buttonback.setOnClickListener(v -> {
             Intent intent = new Intent(ConsultDebtsActivity.this, DebtsActivity.class);
             startActivity(intent);

@@ -17,6 +17,9 @@ public class RecordExpensesActivity extends AppCompatActivity {
         binding = ActivityRecordExpensesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Seleccionar el ítem correcto en la barra de navegación
+        binding.bottomMenu.setSelectedItemId(R.id.nav_debts);
+
         binding.button.setOnClickListener(v -> {
             Intent intent = new Intent(RecordExpensesActivity.this, ExpensesActivity.class);
             startActivity(intent);
