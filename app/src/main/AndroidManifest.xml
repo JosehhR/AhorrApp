@@ -11,73 +11,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AhorrApp">
-        <activity
-            android:name=".EditDebtActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DebtListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".InformationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ExpensesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ReportsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DebtsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TestDebtActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PerfilFragment"
-            android:exported="false" />
-        <activity
-            android:name=".ForgotPasswordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="false" />
+
+        <!-- ... (otras activities) ... -->
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.AhorrApp">
+            android:theme="@style/Theme.AhorrApp" />
+        
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".PresentScreenActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PresentScreen2Activity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
 
-        <activity
-            android:name=".ConsultDebtsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterDebtsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RecordExpensesActivity"
-            android:exported="false" />
-
-        <!-- Activities añadidas -->
-        <activity
-            android:name=".RegisterSharedDebtActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SharedDebtListActivity"
-            android:exported="false" />
+        <!-- ... (otras activities) ... -->
 
     </application>
 

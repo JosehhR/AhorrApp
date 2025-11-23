@@ -2,27 +2,41 @@ package com.example.ahorrapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.ahorrapp.databinding.ActivityMainBinding;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        binding.btnSigamos.setOnClickListener(new View.OnClickListener() { // 2. Usa el OnClickListener correcto de Android
-            @Override
-            public void onClick(View v) { // El parámetro también debe ser android.view.View
-                Intent intent = new Intent(MainActivity.this, PresentScreenActivity.class);
-                startActivity(intent);
-            }
-        });
+        // Si no hay usuario, redirigir al Login
+        if (currentUser == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+            return; // Detener la ejecución de esta actividad
+        }
+
+        BottomNavigationView navView = findViewById(R.id.bottom_navigation);
+
+        // Encontrar el NavController
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        NavController navController = navHostFragment.getNavController();
+
+        // Conectar la barra de navegación con el NavController
+        NavigationUI.setupWithNavController(navView, navController);
     }
 }

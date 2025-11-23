@@ -2,11 +2,14 @@ package com.example.ahorrapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.example.ahorrapp.databinding.FragmentPerfilBinding;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,21 +23,22 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class PerfilFragment extends AppCompatActivity {
+public class PerfilFragment extends Fragment {
 
     private FragmentPerfilBinding binding;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        
-        binding = FragmentPerfilBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        binding = FragmentPerfilBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
 
-        // Seleccionar el ítem correcto en la barra de navegación
-        binding.bottomMenu.setSelectedItemId(R.id.nav_profile);
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -46,32 +50,9 @@ public class PerfilFragment extends AppCompatActivity {
             redirectToLogin();
         }
 
-        binding.CerrarSesion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mAuth.signOut();
-                redirectToLogin();
-            }
-        });
-
-        binding.bottomMenu.setOnItemSelectedListener(item -> {
-            int id = item.getItemId();
-
-            if (id == R.id.nav_bills) {
-                startActivity(new Intent(this, ExpensesActivity.class));
-                return true;
-            } else if (id == R.id.nav_reports) {
-                startActivity(new Intent(this, ReportsActivity.class));
-                return true;
-            } else if (id == R.id.nav_start) {
-                startActivity(new Intent(this, InformationActivity.class));
-                return true;
-            } else if (id == R.id.nav_debts) {
-                startActivity(new Intent(this, DebtsActivity.class));
-                return true;
-            }
-
-            return false;
+        binding.CerrarSesion.setOnClickListener(v -> {
+            mAuth.signOut();
+            redirectToLogin();
         });
     }
 
@@ -85,19 +66,11 @@ public class PerfilFragment extends AppCompatActivity {
                     String name = dataSnapshot.child("name").getValue(String.class);
                     String frequency = dataSnapshot.child("paymentFrequency").getValue(String.class);
 
-
-
                     binding.Email.setText(email);
-
-                    name = "@" + name;
-                    binding.Name.setText(name);
-
+                    binding.Name.setText("@" + name);
                     binding.Frequency.setText(frequency);
 
-
-
                     if (income != null) {
-                        // Formatear el número como moneda
                         NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("es", "CO"));
                         format.setMaximumFractionDigits(0);
                         binding.Income.setText(format.format(income));
@@ -109,15 +82,23 @@ public class PerfilFragment extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(PerfilFragment.this, "Error al cargar los datos del perfil.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Error al cargar los datos del perfil.", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void redirectToLogin() {
-        Intent intent = new Intent(PerfilFragment.this, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish();
+        if (getActivity() != null) {
+            Intent intent = new Intent(getActivity(), LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            getActivity().finish();
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

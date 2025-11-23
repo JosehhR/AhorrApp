@@ -6,30 +6,20 @@
     android:layout_height="match_parent"
     android:background="?android:attr/colorBackground">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_menu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/nav_menu" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bottom_menu"
         android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="24dp">
+            android:padding="16dp">
 
             <ImageButton
                 android:id="@+id/button"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
                 android:background="@drawable/button_background_rounded"
                 android:padding="8dp"
                 android:scaleType="centerInside"
@@ -41,7 +31,7 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="84dp"
+                android:layout_marginTop="24dp"
                 android:text="AhorrApp"
                 android:textSize="40sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -62,10 +52,9 @@
 
             <EditText
                 android:id="@+id/nameEditText"
-                android:layout_width="308dp"
-                android:layout_height="38dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:ems="10"
                 android:hint="Nombre"
                 android:inputType="text"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -74,10 +63,9 @@
 
             <EditText
                 android:id="@+id/startDateEditText"
-                android:layout_width="308dp"
-                android:layout_height="38dp"
-                android:layout_marginTop="20dp"
-                android:ems="10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:hint="Fecha de inicio"
                 android:inputType="text|textAutoComplete"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -86,10 +74,9 @@
 
             <EditText
                 android:id="@+id/dueDateEditText"
-                android:layout_width="308dp"
-                android:layout_height="38dp"
-                android:layout_marginTop="20dp"
-                android:ems="10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:hint="Fecha de vencimiento"
                 android:inputType="text|textAutoComplete"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -98,10 +85,9 @@
 
             <EditText
                 android:id="@+id/interestRateEditText"
-                android:layout_width="308dp"
-                android:layout_height="38dp"
-                android:layout_marginTop="20dp"
-                android:ems="10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:hint="Tasa de interes"
                 android:inputType="numberDecimal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -110,10 +96,9 @@
 
             <EditText
                 android:id="@+id/installmentsEditText"
-                android:layout_width="308dp"
-                android:layout_height="38dp"
-                android:layout_marginTop="20dp"
-                android:ems="10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:hint="Número de cuotas"
                 android:inputType="number"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -122,10 +107,9 @@
 
             <EditText
                 android:id="@+id/debtValueEditText"
-                android:layout_width="308dp"
-                android:layout_height="38dp"
-                android:layout_marginTop="20dp"
-                android:ems="10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:hint="Valor de deuda"
                 android:inputType="numberDecimal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -136,7 +120,7 @@
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:text="Prioridad"
                 android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="@+id/debtValueEditText"
@@ -176,7 +160,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
                 android:text="Registrar deuda"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/radioGroupPrioridad" />

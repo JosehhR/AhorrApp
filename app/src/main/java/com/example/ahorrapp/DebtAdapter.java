@@ -1,8 +1,7 @@
 package com.example.ahorrapp;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ahorrapp.lib.debt;
@@ -45,10 +45,10 @@ public class DebtAdapter extends RecyclerView.Adapter<DebtAdapter.DebtViewHolder
         holder.priorityTextView.setText("Prioridad: " + currentDebt.getPriority());
 
         holder.editDebtButton.setOnClickListener(v -> {
-            Intent intent = new Intent(context, EditDebtActivity.class);
-            intent.putExtra("DEBT_ID", currentDebt.getId());
-            intent.putExtra("USER_ID", currentDebt.getUserId());
-            context.startActivity(intent);
+            Bundle bundle = new Bundle();
+            bundle.putString("DEBT_ID", currentDebt.getId());
+            bundle.putString("USER_ID", currentDebt.getUserId());
+            Navigation.findNavController(v).navigate(R.id.action_consultDebtsFragment_to_editDebtFragment, bundle);
         });
 
         holder.deleteDebtButton.setOnClickListener(v -> {

@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     android:background="?android:attr/colorBackground">
 
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_menu"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:menu="@menu/nav_menu" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="237dp"
@@ -36,12 +26,11 @@
         android:gravity="center_horizontal"
         android:text="Tus deudas"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.05" />
-
 
     <Button
         android:id="@+id/button14"

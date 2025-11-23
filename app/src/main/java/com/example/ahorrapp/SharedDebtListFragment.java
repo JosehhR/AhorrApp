@@ -1,15 +1,17 @@
 package com.example.ahorrapp;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ahorrapp.databinding.ActivitySharedDebtListBinding;
+import com.example.ahorrapp.databinding.FragmentSharedDebtListBinding;
 import com.example.ahorrapp.lib.DebtShared;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,31 +24,31 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SharedDebtListActivity extends AppCompatActivity {
+public class SharedDebtListFragment extends Fragment {
 
-    private ActivitySharedDebtListBinding binding;
-    private RecyclerView sharedDebtsRecyclerView;
+    private FragmentSharedDebtListBinding binding;
     private SharedDebtAdapter sharedDebtAdapter;
     private List<DebtShared> sharedDebtList;
     private FirebaseAuth mAuth;
     private DatabaseReference userSharedDebtsRef;
     private DatabaseReference sharedDebtsRef;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = ActivitySharedDebtListBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        binding = FragmentSharedDebtListBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
 
-        // Seleccionar el ítem correcto en la barra de navegación
-        binding.bottomMenu.setSelectedItemId(R.id.nav_debts);
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         if (currentUser == null) {
-            Toast.makeText(this, "Usuario no autenticado.", Toast.LENGTH_SHORT).show();
-            finish();
+            Toast.makeText(getContext(), "Usuario no autenticado.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -54,31 +56,16 @@ public class SharedDebtListActivity extends AppCompatActivity {
         userSharedDebtsRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("shared_debts");
         sharedDebtsRef = FirebaseDatabase.getInstance().getReference("shared_debts");
 
-        sharedDebtsRecyclerView = binding.sharedDebtsRecyclerView;
-        sharedDebtsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        binding.sharedDebtsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         sharedDebtList = new ArrayList<>();
-        sharedDebtAdapter = new SharedDebtAdapter(this, sharedDebtList);
-        sharedDebtsRecyclerView.setAdapter(sharedDebtAdapter);
+        sharedDebtAdapter = new SharedDebtAdapter(getContext(), sharedDebtList);
+        binding.sharedDebtsRecyclerView.setAdapter(sharedDebtAdapter);
 
-        setupBottomNavigation();
+        binding.buttonBack.setOnClickListener(v -> {
+            NavHostFragment.findNavController(this).navigateUp();
+        });
 
         loadSharedDebts();
-    }
-
-    private void setupBottomNavigation() {
-        binding.bottomMenu.setOnItemSelectedListener(item -> {
-            int id = item.getItemId();
-            if (id == R.id.nav_bills) {
-                startActivity(new Intent(this, ExpensesActivity.class));
-            } else if (id == R.id.nav_reports) {
-                startActivity(new Intent(this, ReportsActivity.class));
-            } else if (id == R.id.nav_start) {
-                startActivity(new Intent(this, InformationActivity.class));
-            } else if (id == R.id.nav_profile) {
-                startActivity(new Intent(this, PerfilFragment.class));
-            }
-            return true;
-        });
     }
 
     private void loadSharedDebts() {
@@ -88,13 +75,12 @@ public class SharedDebtListActivity extends AppCompatActivity {
                 sharedDebtList.clear();
                 if (!snapshot.exists()) {
                     sharedDebtAdapter.notifyDataSetChanged();
-                    return; // No hay deudas compartidas para este usuario
+                    return;
                 }
                 
                 for (DataSnapshot debtIdSnapshot : snapshot.getChildren()) {
                     String debtId = debtIdSnapshot.getKey();
                     if (debtId != null) {
-                        // Ahora, buscamos la deuda completa en el nodo /shared_debts/
                         sharedDebtsRef.child(debtId).addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot debtSnapshot) {
@@ -109,7 +95,7 @@ public class SharedDebtListActivity extends AppCompatActivity {
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
-                                Toast.makeText(SharedDebtListActivity.this, "Error al cargar una deuda compartida", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "Error al cargar una deuda compartida", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
@@ -118,8 +104,14 @@ public class SharedDebtListActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(SharedDebtListActivity.this, "Error al cargar la lista de deudas compartidas", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Error al cargar la lista de deudas compartidas", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

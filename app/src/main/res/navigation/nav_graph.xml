@@ -3,26 +3,93 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/nav_start">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.ahorrapp.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@id/nav_start"
+        android:name="com.example.ahorrapp.InformationFragment"
+        android:label="InformationFragment"
+        tools:layout="@layout/fragment_information" />
 
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.ahorrapp.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        android:id="@id/nav_bills"
+        android:name="com.example.ahorrapp.ExpensesFragment"
+        android:label="ExpensesFragment"
+        tools:layout="@layout/fragment_expenses">
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_expensesFragment_to_recordExpensesFragment"
+            app:destination="@id/recordExpensesFragment" />
     </fragment>
+
+    <fragment
+        android:id="@id/nav_reports"
+        android:name="com.example.ahorrapp.ReportsFragment"
+        android:label="ReportsFragment"
+        tools:layout="@layout/fragment_reports" />
+
+    <fragment
+        android:id="@id/nav_debts"
+        android:name="com.example.ahorrapp.DebtsFragment"
+        android:label="DebtsFragment"
+        tools:layout="@layout/fragment_debts">
+        <action
+            android:id="@+id/action_debtsFragment_to_registerDebtsFragment"
+            app:destination="@id/registerDebtsFragment" />
+        <action
+            android:id="@+id/action_debtsFragment_to_consultDebtsFragment"
+            app:destination="@id/consultDebtsFragment" />
+        <action
+            android:id="@+id/action_debtsFragment_to_registerSharedDebtFragment"
+            app:destination="@id/registerSharedDebtFragment" />
+        <action
+            android:id="@+id/action_debtsFragment_to_sharedDebtListFragment"
+            app:destination="@id/sharedDebtListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@id/nav_profile"
+        android:name="com.example.ahorrapp.PerfilFragment"
+        android:label="PerfilFragment"
+        tools:layout="@layout/fragment_perfil" />
+
+    <fragment
+        android:id="@+id/registerDebtsFragment"
+        android:name="com.example.ahorrapp.RegisterDebtsFragment"
+        android:label="RegisterDebtsFragment"
+        tools:layout="@layout/fragment_register_debts" />
+
+    <fragment
+        android:id="@+id/consultDebtsFragment"
+        android:name="com.example.ahorrapp.ConsultDebtsFragment"
+        android:label="ConsultDebtsFragment"
+        tools:layout="@layout/fragment_consult_debts">
+        <action
+            android:id="@+id/action_consultDebtsFragment_to_editDebtFragment"
+            app:destination="@id/editDebtFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerSharedDebtFragment"
+        android:name="com.example.ahorrapp.RegisterSharedDebtFragment"
+        android:label="RegisterSharedDebtFragment"
+        tools:layout="@layout/fragment_register_shared_debt" />
+
+    <fragment
+        android:id="@+id/sharedDebtListFragment"
+        android:name="com.example.ahorrapp.SharedDebtListFragment"
+        android:label="SharedDebtListFragment"
+        tools:layout="@layout/fragment_shared_debt_list" />
+        
+    <fragment
+        android:id="@+id/recordExpensesFragment"
+        android:name="com.example.ahorrapp.RecordExpensesFragment"
+        android:label="RecordExpensesFragment"
+        tools:layout="@layout/fragment_record_expenses" />
+        
+    <fragment
+        android:id="@+id/editDebtFragment"
+        android:name="com.example.ahorrapp.EditDebtFragment"
+        android:label="EditDebtFragment"
+        tools:layout="@layout/fragment_edit_debt" />
+
 </navigation>
