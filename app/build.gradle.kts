@@ -40,7 +40,7 @@ android {
         viewBinding = true
     }
     kotlinOptions {
-        jvmTarget = "11" // <-- LÍNEA MODIFICADA
+        jvmTarget = "11"
     }
 }
 

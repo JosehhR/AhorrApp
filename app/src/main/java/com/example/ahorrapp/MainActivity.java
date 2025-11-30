@@ -22,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        // Si no hay usuario, redirigir al Login
+        // Si no hay usuario, redirigir a la nueva AuthActivity
         if (currentUser == null) {
-            Intent intent = new Intent(this, LoginActivity.class);
+            Intent intent = new Intent(this, AuthActivity.class);
             startActivity(intent);
             finish();
             return; // Detener la ejecución de esta actividad

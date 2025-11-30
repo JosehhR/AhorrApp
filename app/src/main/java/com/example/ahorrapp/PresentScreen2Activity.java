@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class PresentScreen2Activity extends AppCompatActivity {
 
-    // 1. Define la duración de la pantalla en milisegundos (2000 ms = 2 segundos)
+    // 1. Define la duración de la pantalla en milisegundos (1000 ms = 1 segundo)
     private static final long SPLASH_TIME_OUT = 1000;
 
     @Override
@@ -20,10 +20,10 @@ public class PresentScreen2Activity extends AppCompatActivity {
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                // 3. Esta parte del código se ejecutará después de 2 segundos
+                // 3. Esta parte del código se ejecutará después del tiempo definido
 
-                // Crea el Intent para ir a LoginActivity
-                Intent intent = new Intent(PresentScreen2Activity.this, LoginActivity.class);
+                // Crea el Intent para ir a la nueva AuthActivity
+                Intent intent = new Intent(PresentScreen2Activity.this, AuthActivity.class);
                 startActivity(intent);
 
                 // 4. Cierra todas las actividades anteriores del flujo de presentación
