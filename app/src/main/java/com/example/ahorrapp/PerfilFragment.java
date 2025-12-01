@@ -1,6 +1,8 @@
 package com.example.ahorrapp;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.ahorrapp.databinding.FragmentPerfilBinding;
@@ -50,7 +53,7 @@ public class PerfilFragment extends Fragment {
             redirectToLogin();
         }
 
-        binding.CerrarSesion.setOnClickListener(v -> {
+        binding.logoutButton.setOnClickListener(v -> {
             mAuth.signOut();
             redirectToLogin();
         });
@@ -60,11 +63,12 @@ public class PerfilFragment extends Fragment {
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
+                if (dataSnapshot.exists() && getContext() != null) {
                     String email = dataSnapshot.child("email").getValue(String.class);
                     Double income = dataSnapshot.child("income").getValue(Double.class);
                     String name = dataSnapshot.child("name").getValue(String.class);
                     String frequency = dataSnapshot.child("paymentFrequency").getValue(String.class);
+                    String avatar = dataSnapshot.child("avatar").getValue(String.class);
 
                     binding.Email.setText(email);
                     binding.Name.setText("@" + name);
@@ -77,12 +81,27 @@ public class PerfilFragment extends Fragment {
                     } else {
                         binding.Income.setText("$ 0");
                     }
+
+                    if (avatar != null) {
+                        Resources res = getResources();
+                        int resID = res.getIdentifier(avatar, "drawable", getContext().getPackageName());
+                        if (resID != 0) {
+                            Drawable drawable = ContextCompat.getDrawable(getContext(), resID);
+                            binding.imageView.setImageDrawable(drawable);
+                        } else {
+                            binding.imageView.setImageResource(R.drawable.default_icon);
+                        }
+                    } else {
+                        binding.imageView.setImageResource(R.drawable.default_icon);
+                    }
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getContext(), "Error al cargar los datos del perfil.", Toast.LENGTH_SHORT).show();
+                if (getContext() != null) {
+                    Toast.makeText(getContext(), "Error al cargar los datos del perfil.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

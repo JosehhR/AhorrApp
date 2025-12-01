@@ -4,31 +4,41 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import com.example.ahorrapp.databinding.FragmentInformationBinding;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 public class InformationFragment extends Fragment {
 
-    private FragmentInformationBinding binding;
+    public InformationFragment() {
+        // Required empty public constructor
+    }
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentInformationBinding.inflate(inflater, container, false);
-        return binding.getRoot();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_information, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        // Aquí puedes añadir la lógica de los botones si la tuvieras
-    }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+        Button button2 = view.findViewById(R.id.button2);
+        Button button3 = view.findViewById(R.id.button3);
+        NavController navController = Navigation.findNavController(view);
+
+        button2.setOnClickListener(v -> {
+            navController.navigate(R.id.action_informationFragment_to_bannerExpensesFragment);
+        });
+
+        button3.setOnClickListener(v -> {
+            navController.navigate(R.id.action_informationFragment_to_bannerDebtsFragment);
+        });
     }
 }

@@ -9,7 +9,14 @@
         android:id="@id/nav_start"
         android:name="com.example.ahorrapp.InformationFragment"
         android:label="InformationFragment"
-        tools:layout="@layout/fragment_information" />
+        tools:layout="@layout/fragment_information">
+        <action
+            android:id="@+id/action_informationFragment_to_bannerExpensesFragment"
+            app:destination="@id/bannerExpensesFragment" />
+        <action
+            android:id="@+id/action_informationFragment_to_bannerDebtsFragment"
+            app:destination="@id/bannerDebtsFragment" />
+    </fragment>
 
     <fragment
         android:id="@id/nav_bills"
@@ -91,5 +98,17 @@
         android:name="com.example.ahorrapp.EditDebtFragment"
         android:label="EditDebtFragment"
         tools:layout="@layout/fragment_edit_debt" />
+
+    <fragment
+        android:id="@+id/bannerExpensesFragment"
+        android:name="com.example.ahorrapp.BannerExpensesFragment"
+        android:label="BannerExpensesFragment"
+        tools:layout="@layout/fragment_banner_expenses" />
+
+    <fragment
+        android:id="@+id/bannerDebtsFragment"
+        android:name="com.example.ahorrapp.BannerDebtsFragment"
+        android:label="BannerDebtsFragment"
+        tools:layout="@layout/fragment_banner_debts" />
 
 </navigation>

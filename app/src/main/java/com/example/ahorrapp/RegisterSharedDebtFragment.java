@@ -55,6 +55,10 @@ public class RegisterSharedDebtFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         usersRef = FirebaseDatabase.getInstance().getReference("users");
 
+        binding.buttonBack.setOnClickListener(v -> {
+            NavHostFragment.findNavController(RegisterSharedDebtFragment.this).popBackStack();
+        });
+
         binding.addParticipantButton.setOnClickListener(v -> addParticipantView());
         binding.saveSharedDebtButton.setOnClickListener(v -> saveSharedDebt());
 
