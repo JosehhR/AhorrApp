@@ -28,13 +28,11 @@
         android:id="@+id/button_back"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginStart="16dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/abc_action_bar_up_description"
-        app:srcCompat="@drawable/baseline_arrow_back_ios_24"
-        app:layout_constraintBottom_toBottomOf="@+id/registerDebtTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/registerDebtTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_arrow_back_ios_24"
         app:tint="@android:color/white" />
 
     <!-- ScrollView for the form content -->

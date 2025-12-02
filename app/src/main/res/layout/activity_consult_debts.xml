@@ -7,6 +7,11 @@
     android:background="?android:attr/colorBackground">
 
     <!-- Banner -->
+
+    <!-- Back Button -->
+
+    <!-- RecyclerView for the debts list -->
+
     <TextView
         android:id="@+id/consultDebtsTitle"
         android:layout_width="0dp"
@@ -20,24 +25,21 @@
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Back Button -->
     <ImageButton
         android:id="@+id/button_back"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginStart="16dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="Atrás"
-        app:srcCompat="@drawable/baseline_arrow_back_ios_24"
-        app:layout_constraintBottom_toBottomOf="@id/consultDebtsTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/consultDebtsTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_arrow_back_ios_24"
         app:tint="@android:color/white" />
 
-    <!-- RecyclerView for the debts list -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/debtssRecyclerView"
         android:layout_width="0dp"
