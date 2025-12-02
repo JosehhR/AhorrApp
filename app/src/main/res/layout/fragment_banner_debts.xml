@@ -1,82 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Force re-compilation -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A99EC8">
+    android:background="@android:color/white"
+    tools:context=".BannerDebtsFragment">
 
+    <!-- Banner con Toolbar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_debts"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:title="Manejo de Deudas"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#004D40" 
+        android:minHeight="?attr/actionBarSize"
+        android:paddingTop="72dp"
+        android:paddingBottom="72dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title=" " >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Manejo de Deudas"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <!-- SCROLLVIEW -->
     <ScrollView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
         app:layout_constraintTop_toBottomOf="@id/toolbar_debts"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:id="@+id/container_layout_debts"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:animateLayoutChanges="true">
-
-            <!-- CARD 1: TÍTULO PRINCIPAL -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="#D1C4E9"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="4dp"
-                android:layout_marginBottom="24dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="24dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Manejemos"
-                        android:textColor="#311B92"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="TUS DEUDAS"
-                        android:textColor="#311B92"
-                        android:textSize="36sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            android:padding="16dp">
 
             <!-- CARD 2: DI NO A NUEVAS DEUDAS (Expandible) -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_no_deudas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="#F3E5F5"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
                 android:layout_marginBottom="20dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="#F3E5F5"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -91,9 +78,9 @@
                         android:textColor="#000000"
                         android:textSize="18sp"
                         android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/desc1_debts"
@@ -103,24 +90,25 @@
                         android:text="Evita adquirir nuevas deudas mientras trabajas en pagar las actuales."
                         android:textColor="#546E7A"
                         android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/title1_debts"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                        app:layout_constraintTop_toBottomOf="@id/title1_debts" />
 
                     <TextView
                         android:id="@+id/details_no_deudas"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
+                        android:background="#E1BEE7"
                         android:padding="12dp"
                         android:text="• Antes de comprar a crédito, pregúntate si es una necesidad real.\n• Crea un 'fondo de antojos' para compras no esenciales.\n• Elimina las tarjetas de crédito de las apps de compra online."
                         android:textColor="#4A148C"
-                        android:background="#E1BEE7"
                         android:textSize="14sp"
                         android:visibility="gone"
+                        tools:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/desc1_debts"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                        app:layout_constraintTop_toBottomOf="@id/desc1_debts" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -130,13 +118,13 @@
                 android:id="@+id/card_prioriza_gastos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="#F3E5F5"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
                 android:layout_marginBottom="20dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="#F3E5F5"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -151,9 +139,9 @@
                         android:textColor="#000000"
                         android:textSize="18sp"
                         android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/desc2_debts"
@@ -163,24 +151,25 @@
                         android:text="Destina la mayor parte de tu dinero a lo esencial y al pago de deudas."
                         android:textColor="#546E7A"
                         android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/title2_debts"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                        app:layout_constraintTop_toBottomOf="@id/title2_debts" />
 
                     <TextView
                         android:id="@+id/details_prioriza_gastos"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
+                        android:background="#E1BEE7"
                         android:padding="12dp"
                         android:text="• Usa la regla 50/30/20: 50% necesidades, 30% deseos, 20% pago de deudas y ahorro.\n• Recorta gastos 'hormiga' como cafés o snacks.\n• Revisa tus suscripciones mensuales y cancela las que no uses."
                         android:textColor="#4A148C"
-                        android:background="#E1BEE7"
                         android:textSize="14sp"
                         android:visibility="gone"
+                        tools:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/desc2_debts"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                        app:layout_constraintTop_toBottomOf="@id/desc2_debts" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -190,13 +179,13 @@
                 android:id="@+id/card_estructura_deudas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="#F3E5F5"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
                 android:layout_marginBottom="20dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="#F3E5F5"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -211,9 +200,9 @@
                         android:textColor="#000000"
                         android:textSize="18sp"
                         android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/desc3_debts"
@@ -223,24 +212,25 @@
                         android:text="Conoce el interés, plazo y tipo de cada deuda para atacarlas eficientemente."
                         android:textColor="#546E7A"
                         android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/title3_debts"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                        app:layout_constraintTop_toBottomOf="@id/title3_debts" />
 
                     <TextView
                         android:id="@+id/details_estructura_deudas"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
+                        android:background="#E1BEE7"
                         android:padding="12dp"
                         android:text="• Método Avalancha: Paga primero la deuda con el interés más alto.\n• Método Bola de Nieve: Paga primero la deuda más pequeña para motivarte.\n• Considera la consolidación de deudas para tener un solo pago con una mejor tasa."
                         android:textColor="#4A148C"
-                        android:background="#E1BEE7"
                         android:textSize="14sp"
                         android:visibility="gone"
+                        tools:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/desc3_debts"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                        app:layout_constraintTop_toBottomOf="@id/desc3_debts" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>

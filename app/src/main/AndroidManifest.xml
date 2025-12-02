@@ -25,6 +25,14 @@
             android:name=".MainActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".RecordExpensesActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".RecordSharedExpenseActivity"
+            android:exported="false" />
+
         <!-- Las siguientes activities han sido reemplazadas y se pueden borrar -->
         <!-- 
         <activity android:name=".LoginActivity" android:exported="false" />

@@ -26,6 +26,12 @@
         <action
             android:id="@+id/action_expensesFragment_to_recordExpensesFragment"
             app:destination="@id/recordExpensesFragment" />
+        <action
+            android:id="@+id/action_expensesFragment_to_viewExpensesFragment"
+            app:destination="@id/viewExpensesFragment" />
+        <action
+            android:id="@+id/action_expensesFragment_to_viewSharedExpensesFragment"
+            app:destination="@id/viewSharedExpensesFragment" />
     </fragment>
 
     <fragment
@@ -110,5 +116,17 @@
         android:name="com.example.ahorrapp.BannerDebtsFragment"
         android:label="BannerDebtsFragment"
         tools:layout="@layout/fragment_banner_debts" />
+        
+    <fragment
+        android:id="@+id/viewExpensesFragment"
+        android:name="com.example.ahorrapp.ViewExpensesFragment"
+        android:label="fragment_view_expenses"
+        tools:layout="@layout/fragment_view_expenses" />
+
+    <fragment
+        android:id="@+id/viewSharedExpensesFragment"
+        android:name="com.example.ahorrapp.ViewSharedExpensesFragment"
+        android:label="fragment_view_shared_expenses"
+        tools:layout="@layout/fragment_view_shared_expenses" />
 
 </navigation>

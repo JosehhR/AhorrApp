@@ -4,17 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:attr/colorBackground">
+    tools:context=".ExpensesFragment">
 
-    <Button
-        android:id="@+id/button11"
-        android:layout_width="310dp"
-        android:layout_height="80dp"
-        android:text="Registrar gastos"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <!-- Banner -->
+    <TextView
+        android:id="@+id/expensesTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#160F30"
+        android:gravity="center"
+        android:paddingTop="72dp"
+        android:paddingBottom="72dp"
+        android:text="Control de Gastos"
+        android:textColor="@android:color/white"
+        android:textSize="32sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Buttons -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_record_expense"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="24dp"
+        android:text="Registrar Gasto"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_view_expenses"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expensesTitle"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_view_expenses"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:text="Ver Gastos"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_record_shared_expense"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_record_expense" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_record_shared_expense"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:text="Registrar Gasto Compartido"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_view_shared_expenses"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_view_expenses" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_view_shared_expenses"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:text="Ver Gastos Compartidos"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_record_shared_expense" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

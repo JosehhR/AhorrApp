@@ -40,7 +40,6 @@ public class BannerExpensesFragment extends Fragment {
 
         NavController navController = NavHostFragment.findNavController(this);
         
-        // Define los destinos de nivel superior (los de la barra de navegación inferior)
         Set<Integer> topLevelDestinations = new HashSet<>();
         topLevelDestinations.add(R.id.nav_start);
         topLevelDestinations.add(R.id.nav_bills);
@@ -50,6 +49,7 @@ public class BannerExpensesFragment extends Fragment {
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(topLevelDestinations).build();
         NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration);
+        toolbar.setTitle("");
 
         cardPresupuesto = view.findViewById(R.id.card_presupuesto);
         detailsPresupuesto = view.findViewById(R.id.details_presupuesto);

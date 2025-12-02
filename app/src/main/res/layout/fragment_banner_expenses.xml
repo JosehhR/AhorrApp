@@ -5,81 +5,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#76CDC9">
+    android:background="@android:color/white"
+    tools:context=".BannerExpensesFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_expenses"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:title="Control de Gastos"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#004D40"
+        android:minHeight="?attr/actionBarSize"
+        android:paddingTop="72dp"
+        android:paddingBottom="72dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title=" " >
 
-    <!-- SCROLLVIEW -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Consejos de Gastos"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
     <ScrollView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
         app:layout_constraintTop_toBottomOf="@id/toolbar_expenses"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:id="@+id/container_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:animateLayoutChanges="true">
+            android:padding="16dp">
 
-            <!-- ========================= -->
-            <!-- CARD 1: TÍTULO PRINCIPAL  -->
-            <!-- ========================= -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="#B2DFDB"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="4dp"
-                android:layout_marginBottom="24dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="24dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Controlemos"
-                        android:textColor="#004D40"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="TUS GASTOS"
-                        android:textColor="#004D40"
-                        android:textSize="36sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- ============================================== -->
-            <!-- CARD 2: PRESUPUESTO (Expandible)             -->
-            <!-- ============================================== -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_presupuesto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="#E0F2F1"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:layout_marginBottom="20dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true">
+                app:cardElevation="4dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -91,9 +72,9 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:src="@android:drawable/ic_menu_rotate"
-                        app:tint="#4CAF50"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="#4CAF50" />
 
                     <TextView
                         android:id="@+id/title1"
@@ -115,45 +96,42 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="12dp"
                         android:text="Define un límite de gastos mensual según tus ingresos y necesidades."
-                        android:textSize="14sp"
                         android:textColor="#546E7A"
+                        android:textSize="14sp"
                         app:layout_constraintEnd_toStartOf="@id/img1"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/title1" />
 
-                    <!-- CONTENIDO EXPANDIBLE (Oculto por defecto) -->
                     <TextView
                         android:id="@+id/details_presupuesto"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:visibility="gone"
-                        android:text="Para elaborar un presupuesto efectivo:\n1. Lista tus ingresos netos.\n2. Identifica gastos fijos (alquiler, servicios).\n3. Asigna un monto a gastos variables.\n4. Aplica la regla 50/30/20 (Necesidades/Deseos/Ahorro)."
-                        android:textSize="14sp"
-                        android:textColor="#00695C"
                         android:background="#B2DFDB"
                         android:padding="12dp"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:text="Para elaborar un presupuesto efectivo:\n1. Lista tus ingresos netos.\n2. Identifica gastos fijos (alquiler, servicios).\n3. Asigna un monto a gastos variables.\n4. Aplica la regla 50/30/20 (Necesidades/Deseos/Ahorro)."
+                        android:textColor="#00695C"
+                        android:textSize="14sp"
+                        android:visibility="gone"
+                        tools:visibility="visible"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/img1"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/img1" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- ============================================== -->
-            <!-- CARD 3: REGISTRA (Expandible)                -->
-            <!-- ============================================== -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_registra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="#E0F2F1"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:layout_marginBottom="20dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true">
+                app:cardElevation="4dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -165,17 +143,17 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:src="@android:drawable/ic_menu_edit"
-                        app:tint="#FF9800"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="#FF9800" />
 
                     <TextView
                         android:id="@+id/title2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:text="REGISTRA TUS GASTOS"
                         android:gravity="end"
+                        android:text="REGISTRA TUS GASTOS"
                         android:textColor="#000000"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -187,49 +165,46 @@
                         android:id="@+id/desc2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
                         android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
                         android:gravity="end"
                         android:text="Registra todos tus gastos para comprender mejor cómo manejas tu dinero."
-                        android:textSize="14sp"
                         android:textColor="#546E7A"
+                        android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/img2"
                         app:layout_constraintTop_toBottomOf="@id/title2" />
 
-                    <!-- CONTENIDO EXPANDIBLE -->
                     <TextView
                         android:id="@+id/details_registra"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:visibility="gone"
-                        android:text="Consejos para registrar:\n• Usa una app móvil o una libreta pequeña.\n• Registra el gasto al momento de hacerlo.\n• Revisa tus totales cada semana.\n• No olvides los 'gastos hormiga' (cafés, snacks)."
-                        android:textSize="14sp"
-                        android:textColor="#E65100"
                         android:background="#FFE0B2"
                         android:padding="12dp"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:text="Consejos para registrar:\n• Usa una app móvil o una libreta pequeña.\n• Registra el gasto al momento de hacerlo.\n• Revisa tus totales cada semana.\n• No olvides los 'gastos hormiga' (cafés, snacks)."
+                        android:textColor="#E65100"
+                        android:textSize="14sp"
+                        android:visibility="gone"
+                        tools:visibility="visible"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/img2"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/img2" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- ============================================== -->
-            <!-- CARD 4: REDUCE (Expandible)                  -->
-            <!-- ============================================== -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_reduce"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="#E0F2F1"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:layout_marginBottom="20dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true">
+                app:cardElevation="4dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -241,9 +216,9 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:src="@android:drawable/arrow_down_float"
-                        app:tint="#4CAF50"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="#4CAF50" />
 
                     <TextView
                         android:id="@+id/title3"
@@ -265,45 +240,42 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp"
                         android:text="Revisa tus gastos para identificar los no esenciales y recórtalos."
-                        android:textSize="14sp"
                         android:textColor="#546E7A"
+                        android:textSize="14sp"
                         app:layout_constraintEnd_toStartOf="@id/img3"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/title3" />
 
-                    <!-- CONTENIDO EXPANDIBLE -->
                     <TextView
                         android:id="@+id/details_reduce"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:visibility="gone"
-                        android:text="Estrategias de reducción:\n• Cancela suscripciones que no uses.\n• Cocina en casa en vez de pedir delivery.\n• Busca alternativas de marca blanca.\n• Espera 24h antes de una compra impulsiva."
-                        android:textSize="14sp"
-                        android:textColor="#1B5E20"
                         android:background="#C8E6C9"
                         android:padding="12dp"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:text="Estrategias de reducción:\n• Cancela suscripciones que no uses.\n• Cocina en casa en vez de pedir delivery.\n• Busca alternativas de marca blanca.\n• Espera 24h antes de una compra impulsiva."
+                        android:textColor="#1B5E20"
+                        android:textSize="14sp"
+                        android:visibility="gone"
+                        tools:visibility="visible"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/img3"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/img3" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- ============================================== -->
-            <!-- CARD 5: PRIORIZA (Expandible)                -->
-            <!-- ============================================== -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_prioriza"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="#E0F2F1"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:layout_marginBottom="32dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true">
+                app:cardElevation="4dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -315,17 +287,17 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:src="@android:drawable/ic_menu_myplaces"
-                        app:tint="#F44336"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="#F44336" />
 
                     <TextView
                         android:id="@+id/title4"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:text="PRIORIZA NECESIDADES"
                         android:gravity="end"
+                        android:text="PRIORIZA NECESIDADES"
                         android:textColor="#000000"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -337,36 +309,34 @@
                         android:id="@+id/desc4"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
                         android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
                         android:gravity="end"
                         android:text="Registra gastos para entender tu gestión financiera."
-                        android:textSize="14sp"
                         android:textColor="#546E7A"
+                        android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/img4"
                         app:layout_constraintTop_toBottomOf="@id/title4" />
 
-                    <!-- CONTENIDO EXPANDIBLE -->
                     <TextView
                         android:id="@+id/details_prioriza"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:visibility="gone"
-                        android:text="Jerarquía de gastos:\n1. Esenciales: Techo, comida, salud, servicios.\n2. Seguridad: Fondo de emergencia, seguros.\n3. Objetivos: Deudas, educación.\n4. Estilo de vida: Ocio, viajes, lujos."
-                        android:textSize="14sp"
-                        android:textColor="#B71C1C"
                         android:background="#FFCDD2"
                         android:padding="12dp"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:text="No es lo mismo un deseo que una necesidad:\n• Necesidad: Algo esencial para vivir (comida, vivienda).\n• Deseo: Algo que te gustaría tener pero no es vital (cine, ropa de marca).\n\nPriorizar te ayudará a no gastar de más."
+                        android:textColor="#B71C1C"
+                        android:textSize="14sp"
+                        android:visibility="gone"
+                        tools:visibility="visible"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/img4"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/img4" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
-
         </LinearLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

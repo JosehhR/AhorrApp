@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp">
+    app:cardElevation="4dp"
+    app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,25 +15,25 @@
 
         <!-- Summary Section (Always Visible) -->
         <TextView
-            android:id="@+id/debtNameTextView"
+            android:id="@+id/expenseNameTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:textAppearance="?attr/textAppearanceHeadline6"
-            app:layout_constraintEnd_toStartOf="@+id/debtValueTextView"
+            app:layout_constraintEnd_toStartOf="@+id/expenseValueTextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Préstamo del coche" />
+            tools:text="Compra del supermercado" />
 
         <TextView
-            android:id="@+id/debtValueTextView"
+            android:id="@+id/expenseValueTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?attr/textAppearanceHeadline6"
             android:textColor="?attr/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="$25.000.000" />
+            tools:text="$150.000" />
 
         <!-- Expandable Details Section (Initially Hidden) -->
         <LinearLayout
@@ -45,39 +45,46 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/debtNameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/expenseNameTextView"
             tools:visibility="visible">
 
-            <!-- Details -->
-            <TextView android:id="@+id/startDateTextView" android:layout_width="wrap_content" android:layout_height="wrap_content" tools:text="Fecha de inicio: 2023-01-15" />
-            <TextView android:id="@+id/dueDateTextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" tools:text="Fecha de vencimiento: 2028-01-15" />
-            <TextView android:id="@+id/interestRateTextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" tools:text="Tasa de interés: 1.2%" />
-            <TextView android:id="@+id/installmentsTextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" tools:text="Cuotas: 60" />
-            <TextView android:id="@+id/priorityTextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" tools:text="Prioridad: Alta" />
-            
-            <!-- Action Buttons -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="end"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/editDebtButton"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Editar" />
+                    android:text="Prioridad: "
+                    android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/deleteDebtButton"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                <TextView
+                    android:id="@+id/expensePriorityTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:textColor="?attr/colorError"
-                    android:text="Eliminar" />
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    tools:text="Alta" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha: "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/expenseDateTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceCaption"
+                    tools:text="22/07/2024" />
             </LinearLayout>
 
         </LinearLayout>

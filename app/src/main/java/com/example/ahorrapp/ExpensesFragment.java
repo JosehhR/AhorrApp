@@ -26,8 +26,22 @@ public class ExpensesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.button11.setOnClickListener(v -> {
-            NavHostFragment.findNavController(this).navigate(R.id.action_expensesFragment_to_recordExpensesFragment);
+        binding.buttonRecordExpense.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), RecordExpensesActivity.class);
+            startActivity(intent);
+        });
+
+        binding.buttonViewExpenses.setOnClickListener(v -> {
+            NavHostFragment.findNavController(this).navigate(R.id.action_expensesFragment_to_viewExpensesFragment);
+        });
+
+        binding.buttonRecordSharedExpense.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), RecordSharedExpenseActivity.class);
+            startActivity(intent);
+        });
+
+        binding.buttonViewSharedExpenses.setOnClickListener(v -> {
+            NavHostFragment.findNavController(this).navigate(R.id.action_expensesFragment_to_viewSharedExpensesFragment);
         });
     }
 
