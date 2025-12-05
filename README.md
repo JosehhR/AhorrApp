@@ -5,15 +5,25 @@ AhorrApp es una aplicación para Android diseñada para ayudar a los usuarios a 
 ## Características Principales
 
 *   **Autenticación de Usuarios:** Sistema seguro de registro e inicio de sesión con correo electrónico y contraseña.
+![Imagen de WhatsApp 2025-12-04 a las 23 41 40_e752157d](https://github.com/user-attachments/assets/280858f0-eb6c-417b-a663-48ce62ed25ec)
+
 *   **Gestión de Gastos:**
+![Imagen de WhatsApp 2025-12-04 a las 23 41 29_26853166](https://github.com/user-attachments/assets/7cd94f92-0f12-4e12-b733-39df6198092d)
     *   Registro de gastos individuales con detalles como nombre, valor y prioridad.
     *   Registro de **gastos compartidos** entre múltiples usuarios de la aplicación.
 *   **Gestión de Deudas:**
+![Imagen de WhatsApp 2025-12-04 a las 23 41 07_65b969cd](https://github.com/user-attachments/assets/5820efc3-667b-43f4-9483-be6bdca7238f)
     *   Registro de deudas personales con campos detallados como valor, tasa de interés, cuotas y fechas de vencimiento.
     *   Registro de **deudas compartidas**, permitiendo especificar los participantes y el porcentaje de responsabilidad de cada uno.
 *   **Visualización de Datos:** Listas claras y organizadas para consultar todos los gastos y deudas registrados.
+![Imagen de WhatsApp 2025-12-04 a las 23 40 56_9e8b7433](https://github.com/user-attachments/assets/17319c37-1572-43dd-bfc4-c78d4f9549b7)
+
 *   **Interfaz Intuitiva:** Diseño limpio y moderno basado en Material Design, con una navegación fluida entre las diferentes secciones.
+![Imagen de WhatsApp 2025-12-04 a las 23 40 46_b2174ec4](https://github.com/user-attachments/assets/b4ae1727-9118-4186-a2b4-6a098402c1b2)
+
 *   **Banners Informativos:** Sección de consejos y buenas prácticas para la gestión financiera.
+![Imagen de WhatsApp 2025-12-04 a las 23 40 35_6513c81e](https://github.com/user-attachments/assets/968785bd-4178-4b17-b292-3275bc941cf9)
+
 
 ## Arquitectura y Tecnologías Utilizadas
 
